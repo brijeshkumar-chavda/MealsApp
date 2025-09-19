@@ -9,7 +9,7 @@ class Meal {
     required this.title,
     required this.imageUrl,
     required this.ingredients,
-    required this.steps,
+    required this.steps, 
     required this.duration,
     required this.complexity,
     required this.affordability,
