@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:meals_app/screens/categories_screen.dart';
+import 'package:meals_app/screens/meals_screen.dart';
 
 class TabsScreen extends StatefulWidget {
   const TabsScreen({super.key});
@@ -10,28 +12,36 @@ class TabsScreen extends StatefulWidget {
 }
 
 class _TabsScreenState extends State<TabsScreen> {
-  int _selectedPageIndex = 0;
+  int _selectedScreenIndex = 0;
 
-  void selectPage(index){
-
+  void _selectScreen(int index) {
     setState(() {
-      
+      _selectedScreenIndex = index;
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    Widget activeScreen = CategoriesScreen();
+    var activeScreenTitle = "Categories";
+
+    if (_selectedScreenIndex == 1) {
+      activeScreen = MealsScreen(title: "Favorites", meals: []);
+      activeScreenTitle = "Your Favorites";
+    }
+
     return Scaffold(
-      appBar: AppBar(title: Text("dynamic...")),
-      body: Text("..."),
+      appBar: AppBar(title: Text(activeScreenTitle)),
+      body: activeScreen,
       bottomNavigationBar: BottomNavigationBar(
-        onTap: (index) {},
+        onTap: _selectScreen,
+        currentIndex: _selectedScreenIndex,
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.set_meal),
             label: "Category",
           ),
-          BottomNavigationBarItem(icon: Icon(Icons.start), label: "Favorite"),
+          BottomNavigationBarItem(icon: Icon(Icons.star), label: "Favorite"),
         ],
       ),
     );
