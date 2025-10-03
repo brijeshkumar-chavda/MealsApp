@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:meals_app/screens/categories_screen.dart';
 import 'package:meals_app/screens/meals_screen.dart';
 
-class TabsScreen extends StatefulWidget {
-  const TabsScreen({super.key});
+class BottomTabBar extends StatefulWidget {
+  const BottomTabBar({super.key});
 
   @override
-  State<TabsScreen> createState() {
-    return _TabsScreenState();
+  State<BottomTabBar> createState() {
+    return _BottomTabBarState();
   }
 }
 
-class _TabsScreenState extends State<TabsScreen> {
+class _BottomTabBarState extends State<BottomTabBar> {
   int _selectedScreenIndex = 0;
 
   void _selectScreen(int index) {
