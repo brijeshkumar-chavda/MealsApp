@@ -34,11 +34,17 @@ class _BottomTabBarState extends State<BottomTabBar> {
 
   @override
   Widget build(BuildContext context) {
-    Widget activeScreen = CategoriesScreen();
+    Widget activeScreen = CategoriesScreen(
+      onToggleFavoriteMeal: _toggleFavoriteMealStatus,
+    );
     var activeScreenTitle = "Categories";
 
     if (_selectedScreenIndex == 1) {
-      activeScreen = MealsScreen(title: "Favorites", meals: []);
+      activeScreen = MealsScreen(
+        title: "Favorites",
+        meals: [],
+        onToggleFavoriteMeal: _toggleFavoriteMealStatus,
+      );
       activeScreenTitle = "Your Favorites";
     }
 
