@@ -20,9 +20,13 @@ class _BottomTabBarState extends State<BottomTabBar> {
     final isExisting = _favoriteMeals.contains(meal);
 
     if (isExisting) {
-      _favoriteMeals.remove(meal);
+      setState(() {
+        _favoriteMeals.remove(meal);
+      });
     } else {
-      _favoriteMeals.add(meal);
+      setState(() {
+        _favoriteMeals.add(meal);
+      }); 
     }
   }
 
@@ -42,7 +46,7 @@ class _BottomTabBarState extends State<BottomTabBar> {
     if (_selectedScreenIndex == 1) {
       activeScreen = MealsScreen(
         title: "Favorites",
-        meals: [],
+        meals: _favoriteMeals,
         onToggleFavoriteMeal: _toggleFavoriteMealStatus,
       );
       activeScreenTitle = "Your Favorites";
