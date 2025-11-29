@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:meals_app/models/meal.dart';
 import 'package:meals_app/screens/categories_screen.dart';
 import 'package:meals_app/screens/meals_screen.dart';
+import 'package:meals_app/widgets/main_drawer.dart';
 
 class BottomTabBar extends StatefulWidget {
   const BottomTabBar({super.key});
@@ -63,7 +64,7 @@ class _BottomTabBarState extends State<BottomTabBar> {
 
     return Scaffold(
       appBar: AppBar(title: Text(activeScreenTitle)),
-      drawer: Drawer(),
+      drawer: MainDrawer(),
       body: activeScreen,
       bottomNavigationBar: BottomNavigationBar(
         onTap: _selectScreen,
