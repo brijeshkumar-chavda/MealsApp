@@ -24,7 +24,7 @@ class _BottomTabBarState extends State<BottomTabBar> {
   }
 
   void _toggleFavoriteMealStatus(Meal meal) {
-    final isExisting = _favoriteMeals.contains(meal);
+    final bool isExisting = _favoriteMeals.contains(meal);
 
     if (isExisting) {
       setState(() {

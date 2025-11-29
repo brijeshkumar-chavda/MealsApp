@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:meals_app/models/category.dart';
 
-class CategoryGridItem extends StatelessWidget {
-  const CategoryGridItem({
+class GridItem extends StatelessWidget {
+  const GridItem({
     super.key,
     required this.category,
     required this.onSelectCategory,
