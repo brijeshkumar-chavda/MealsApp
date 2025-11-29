@@ -63,6 +63,7 @@ class _BottomTabBarState extends State<BottomTabBar> {
 
     return Scaffold(
       appBar: AppBar(title: Text(activeScreenTitle)),
+      drawer: Drawer(),
       body: activeScreen,
       bottomNavigationBar: BottomNavigationBar(
         onTap: _selectScreen,
