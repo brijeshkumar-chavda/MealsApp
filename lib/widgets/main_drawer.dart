@@ -54,7 +54,7 @@ class MainDrawer extends StatelessWidget {
                 fontSize: 24,
               ),
             ),
-            onTap: () => onSelectScreen("Meals"),
+            onTap: () => onSelectScreen("Meals Screen"),
           ),
           ListTile(
             leading: Icon(
@@ -69,7 +69,7 @@ class MainDrawer extends StatelessWidget {
                 fontSize: 24,
               ),
             ),
-            onTap: () => onSelectScreen("filters"),
+            onTap: () => onSelectScreen("Filters Screen"),
           ),
         ],
       ),
