@@ -46,6 +46,13 @@ class _BottomTabBarState extends State<BottomTabBar> {
     });
   }
 
+  void _setScreen(String identifier) {
+    if (identifier == "filter") {
+    } else {
+      Navigator.of(context).pop();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     Widget activeScreen = CategoriesScreen(
@@ -64,7 +71,7 @@ class _BottomTabBarState extends State<BottomTabBar> {
 
     return Scaffold(
       appBar: AppBar(title: Text(activeScreenTitle)),
-      drawer: const MainDrawer(),
+      drawer: MainDrawer(onSelectScreen: _setScreen),
       body: activeScreen,
       bottomNavigationBar: BottomNavigationBar(
         onTap: _selectScreen,
