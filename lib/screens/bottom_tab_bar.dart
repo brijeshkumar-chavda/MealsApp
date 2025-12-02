@@ -50,9 +50,9 @@ class _BottomTabBarState extends State<BottomTabBar> {
   void _setScreen(String identifier) {
     Navigator.of(context).pop();
     if (identifier == "Filters Screen") {
-      Navigator.of(
-        context,
-      ).push(MaterialPageRoute(builder: (context) => FilterScreen()));
+      Navigator.of(context).push(
+        MaterialPageRoute(builder: (context) => FilterScreen()),
+      );
     }
   }
 

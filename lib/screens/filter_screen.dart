@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:meals_app/screens/bottom_tab_bar.dart';
-import 'package:meals_app/widgets/main_drawer.dart';
+import 'package:meals_app/widgets/filter_option.dart';
 
 class FilterScreen extends StatefulWidget {
   const FilterScreen({super.key});
@@ -12,45 +11,66 @@ class FilterScreen extends StatefulWidget {
 }
 
 class _FilterScreenState extends State<FilterScreen> {
-  var _isGlutenFreeFilterActive = false;
+  bool _isGlutenFreeFilterActive = false;
+  bool _isLactoseFreeFilterActive = false;
+  bool _isVegetarianFilterActive = false;
+  bool _isVeganFilterActive = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("Your filters")),
-      drawer: MainDrawer(
-        onSelectScreen: (identifier) {
-          Navigator.of(context).pop();
-          if (identifier == "Meals Screen") {
-            Navigator.of(
-              context,
-            ).push(MaterialPageRoute(builder: (context) => BottomTabBar()));
-          }
-        },
-      ),
+      // drawer: MainDrawer(
+      //   onSelectScreen: (identifier) {
+      //     Navigator.of(context).pop();
+      //     if (identifier == "Meals Screen") {
+      //       Navigator.of(
+      //         context,
+      //       ).push(MaterialPageRoute(builder: (context) => BottomTabBar()));
+      //     }
+      //   },
+      // ),
       body: Column(
         children: [
-          SwitchListTile(
-            value: _isGlutenFreeFilterActive,
+          FilterOption(
+            currentActiveFilter: _isGlutenFreeFilterActive,
             onChanged: (isChecked) {
               setState(() {
                 _isGlutenFreeFilterActive = isChecked;
               });
             },
-            title: Text(
-              "Gluten-free",
-              style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                color: Theme.of(context).colorScheme.onSurface,
-              ),
-            ),
-            subtitle: Text(
-              "Only include gluten-free meals",
-              style: Theme.of(context).textTheme.labelMedium!.copyWith(
-                color: Theme.of(context).colorScheme.onSurface,
-              ),
-            ),
-            activeThumbColor: Theme.of(context).colorScheme.tertiary,
-            contentPadding: EdgeInsets.only(left: 34, right: 22),
+            title: "Gluten-free",
+            subTitle: "Only include gluten-free meals.",
+          ),
+          FilterOption(
+            currentActiveFilter: _isLactoseFreeFilterActive,
+            onChanged: (isChecked) {
+              setState(() {
+                _isLactoseFreeFilterActive = isChecked;
+              });
+            },
+            title: "Lactose-free",
+            subTitle: "Only include lactose-free meals.",
+          ),
+          FilterOption(
+            currentActiveFilter: _isVegetarianFilterActive,
+            onChanged: (isChecked) {
+              setState(() {
+                _isVegetarianFilterActive = isChecked;
+              });
+            },
+            title: "Vegetarian",
+            subTitle: "Only include vegetarian meals.",
+          ),
+          FilterOption(
+            currentActiveFilter: _isVeganFilterActive,
+            onChanged: (isChecked) {
+              setState(() {
+                _isVeganFilterActive = isChecked;
+              });
+            },
+            title: "Vegan",
+            subTitle: "Only include vegan meals.",
           ),
         ],
       ),
